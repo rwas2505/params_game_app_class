@@ -14,12 +14,25 @@ class Api::ParamsController < ApplicationController
     @reply = ""
     @guess = params["user_number"].to_i
     if @guess < number
-      @reply = "Your guess of was too low!"
+      @reply = "Your guess of was #{@guess} too low!"
     elsif @guess > number
-      @reply = "Your guess was too high!"
+      @reply = "Your guess of #{@guess} was too high!"
     else
-      @reply = "That is correct!"
+      @reply = "#{@guess} is correct!"
     end
     render "guess_number.json.jb"
+  end
+
+  def segment
+    number = 21
+    @guess = params[:number].to_i
+    if @guess < number
+      @reply = "Your guess of #{@guess} was  too low!"
+    elsif @guess > number
+      @reply = "Your guess of #{@guess} was too high!"
+    else
+      @reply = "#{@guess} is correct!"
+    end
+    render "segment_param.json.jb"
   end
 end
