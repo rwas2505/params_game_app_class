@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     get "/show_name" => "params#show_name"
     get "/number_game" => "params#guess"
     get "/segment_param/:number" => "params#segment" 
+    post "/post_route" => "params#posted"
+    post "/login" => "params#login"
   end
 end
